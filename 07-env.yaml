@@ -6,7 +6,8 @@ spec:
   containers:
   - name: nginx
     image: nginx
-    environment:
-      project: roboshop
-      course: "kubernetes"
-      duration: "20hrs"
+    env:
+    - name: project
+      value: "roboshop"
+    - name: course
+      value: kubernetes

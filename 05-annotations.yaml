@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: annotations
+  labels:
+    project: roboshop
+  annotations:
+    imageregistry: "https://hub.docker.com/"
+    jenkins-build-url: "https://jenkins.joindevops.com/build/roboshop/job/2"

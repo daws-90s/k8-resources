@@ -8,7 +8,7 @@ metadata:
     component: frontend
 spec:
   # modify replicas according to your case
-  replicas: 3
+  replicas: 10
   # replicaset uses these labels to match pods
   selector:
     matchLabels:

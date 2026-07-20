@@ -41,4 +41,4 @@ spec:
     persistentVolumeClaim:
       claimName: ebs-static
   nodeSelector:
-    topology.kubernetes.io/zone: us-east-1c
+    topology.kubernetes.io/zone: us-east-1d

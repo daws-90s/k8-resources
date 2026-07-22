@@ -30,3 +30,25 @@ spec:
         image: nginx:latest
         ports:
         - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  # servicer labels
+  labels:
+    project: roboshop
+    tier: frontend
+    component: frontend
+    purpose: deployment
+spec:
+  # Service uses the below labels to select the pods
+  selector:
+    project: roboshop
+    tier: frontend
+    component: frontend
+    purpose: deployment
+  ports:
+    - protocol: TCP
+      port: 80 # service port
+      targetPort: 80 # container port

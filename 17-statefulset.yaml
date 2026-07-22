@@ -22,28 +22,27 @@ spec:
       app: nginx # has to match .spec.template.metadata.labels
   serviceName: "nginx"
   replicas: 3 # by default is 1
-  minReadySeconds: 10 # by default is 0
   template:
     metadata:
       labels:
         app: nginx # has to match .spec.selector.matchLabels
     spec:
-      terminationGracePeriodSeconds: 10
       containers:
       - name: nginx
-        image: registry.k8s.io/nginx-slim:0.24
+        image: nginx
         ports:
         - containerPort: 80
           name: web
         volumeMounts:
         - name: www
           mountPath: /usr/share/nginx/html
+  # PVC
   volumeClaimTemplates:
   - metadata:
       name: www
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "my-storage-class"
+      storageClassName: "roboshop-ebs"
       resources:
         requests:
           storage: 1Gi
